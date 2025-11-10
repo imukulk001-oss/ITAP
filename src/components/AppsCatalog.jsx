@@ -11,8 +11,8 @@ const apps = [
   { id: 2, title: "App 2", desc: "Desc 2", img: "/images/app2-image.png" },
   { id: 3, title: "App 3", desc: "Desc 3", img: "/images/app3-image.png" },
   { id: 4, title: "App 4", desc: "Desc 4", img: "/images/app4-image.png" },
-  { id: 5, title: "App 5", desc: "Desc 5", img: "/images/app5-image.png" },
-  { id: 6, title: "App 6", desc: "Desc 6", img: "/images/app6-image.png" },
+  { id: 5, title: "App 5", desc: "Desc 5", img: "/images/app4-image.png" },
+  { id: 6, title: "App 6", desc: "Desc 6", img: "/images/app4-image.png" },
 ];
 
 const AppsCatalog = () => {
@@ -37,15 +37,15 @@ const AppsCatalog = () => {
   // }, []);
 
   const scrollLeft = () => {
-    scrollRef.current.scrollBy({ left: -320, behavior: "smooth" });
+    scrollRef.current.scrollBy({ left: -400, behavior: "smooth" });
   };
 
   const scrollRight = () => {
-    scrollRef.current.scrollBy({ left: 320, behavior: "smooth" });
+    scrollRef.current.scrollBy({ left: 400, behavior: "smooth" });
   };
 
   return (
-    <section className="apps-section">
+    <section id="apps-catalog" className="apps-section">
       <h2 className="apps-title">Apps Catalog</h2>
 
       <div className="apps-slider-container">
