@@ -11,7 +11,7 @@ import './App.css';
 function App() {
   return (
     <div className="App">
-      <Header1 />
+      {/* <Header1 /> */}
       <Header2 />
       <HeroSection />
       <LoginSection />
