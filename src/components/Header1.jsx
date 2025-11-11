@@ -20,19 +20,19 @@ const Header1 = () => {
     <div className="header1">
       <div className="header1-content">
         <a href="#main-content" className="skip-link">
-          Skip to main content
+          Skip to main content.
         </a>
         <div className="divider"></div>
         {/* <a href="#screen-reader" className="accessibility-link">
           Screen Reader Access
         </a> */}
-        <a href="#text-size" className="accessibility-link">
+        {/* <a href="#text-size" className="accessibility-link">
           Text Size
         </a>
         <div className="text-size-controls">
           <button className="text-size-btn" aria-label="Decrease text size">A-</button>
           <button className="text-size-btn" aria-label="Increase text size">A+</button>
-        </div>
+        </div> */}
         <div className="date-time">
           {formattedDate} | {dayName}
         </div>

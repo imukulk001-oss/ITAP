@@ -1,94 +1,93 @@
-import React from 'react';
-import './AppsCatalog.css';
+import React, { useRef } from "react";
+import "./AppsCatalog.css";
 
-const AppCard = ({ title, description, image, imageAlt, onOpen, onReadMore }) => {
-  return (
-    <div className="app-card">
-      <div className="app-card-image-wrapper">
-        <img src={image} alt={imageAlt} className="app-card-image" />
-      </div>
-      <div className="app-card-content">
-        <div className="app-card-text">
-          <h3 className="app-card-title">{title}</h3>
-          <p className="app-card-description">{description}</p>
-          <button className="read-more-link" onClick={onReadMore}>
-            Read More
-            <svg width="12" height="10" viewBox="0 0 12 10" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M1 5H11M11 5L7.5 1M11 5L7.5 9" stroke="#008BF9" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-            </svg>
-          </button>
-        </div>
-        <button className="app-open-button" onClick={onOpen}>
-          Open
-        </button>
-      </div>
-    </div>
-  );
-};
+const apps = [
+  {
+    id: 1,
+    title: "Legal Case Management System",
+    desc: "Trial run of Legal Case Management System is Active",
+    img: "/images/app1-image.png", // ✅ public image path
+  },
+  { id: 2, title: "App 2", desc: "Desc 2", img: "/images/app2-image.png" },
+  { id: 3, title: "App 3", desc: "Desc 3", img: "/images/app3-image.png" },
+  { id: 4, title: "App 4", desc: "Desc 4", img: "/images/app4-image.png" },
+  { id: 5, title: "App 5", desc: "Desc 5", img: "/images/app4-image.png" },
+  { id: 6, title: "App 6", desc: "Desc 6", img: "/images/app4-image.png" },
+];
 
 const AppsCatalog = () => {
-  const apps = [
-    {
-      id: 1,
-      title: 'Legal Case Management System',
-      description: 'Trial run of Legal Case Management System is Active',
-      image: '/images/app1-image.png',
-      imageAlt: 'Legal Case Management System',
-    },
-    {
-      id: 2,
-      title: 'App 2',
-      description: 'Desc 2',
-      image: '/images/app2-image.png',
-      imageAlt: 'App 2',
-    },
-    {
-      id: 3,
-      title: 'App 3',
-      description: 'Desc 3',
-      image: '/images/app3-image.png',
-      imageAlt: 'App 3',
-    },
-    {
-      id: 4,
-      title: 'App 4',
-      description: 'Desc 4',
-      image: '/images/app4-image.png',
-      imageAlt: 'App 4',
-    },
-  ];
+  const scrollRef = useRef(null);
 
-  const handleOpen = (appId, title) => {
-    console.log(`Opening app ${appId}: ${title}`);
-    alert(`Opening ${title}. This would navigate to the app.`);
+  // // Auto-scroll logic
+  // useEffect(() => {
+  //   const slider = scrollRef.current;
+  //   const scrollStep = 320;
+  //   const delay = 4000; // 4 seconds
+  //   const autoScroll = setInterval(() => {
+  //     if (slider) {
+  //       if (slider.scrollLeft + slider.clientWidth >= slider.scrollWidth) {
+  //         slider.scrollLeft = 0; // Reset to start
+  //       } else {
+  //         slider.scrollLeft += scrollStep;
+  //       }
+  //     }
+  //   }, delay);
+
+  //   return () => clearInterval(autoScroll);
+  // }, []);
+
+  const scrollLeft = () => {
+    scrollRef.current.scrollBy({ left: -400, behavior: "smooth" });
   };
 
-  const handleReadMore = (appId, title) => {
-    console.log(`Read more about app ${appId}: ${title}`);
-    alert(`Read more about ${title}. This would show more details.`);
+  const scrollRight = () => {
+    scrollRef.current.scrollBy({ left: 400, behavior: "smooth" });
   };
 
   return (
-    <section className="apps-catalog" id="apps-catalog">
-      <div className="apps-catalog-content">
-        <h2 className="apps-catalog-title">Apps Catalog</h2>
-        <div className="apps-grid">
+    <section id="apps-catalog" className="apps-section">
+      <h2 className="apps-title">Apps Catalog</h2>
+
+      <div className="apps-slider-container">
+        <button className="arrow left" onClick={scrollLeft}>
+          &#10094;
+        </button>
+
+        <div className="apps-slider" ref={scrollRef}>
           {apps.map((app) => (
-            <AppCard
-              key={app.id}
-              title={app.title}
-              description={app.description}
-              image={app.image}
-              imageAlt={app.imageAlt}
-              onOpen={() => handleOpen(app.id, app.title)}
-              onReadMore={() => handleReadMore(app.id, app.title)}
-            />
+            <div className="app-card" key={app.id}>
+              <img src={app.img} alt={app.title} className="app-image" />
+              <div className="app-info">
+                <h3>{app.title}</h3>
+                <p>{app.desc}</p>
+                <div className="app-links">
+                  {/* ✅ Replace invalid href with button-style link */}
+                  <button
+                    className="read-more-btn"
+                    onClick={() => alert(`Read more about ${app.title}`)}
+                  >
+                    Read More →
+                  </button>
+                  <button
+                    className="open-btn"
+                    onClick={() => alert(`Opening ${app.title}`)}
+                  >
+                    Open
+                  </button>
+                </div>
+              </div>
+            </div>
           ))}
         </div>
+
+        <button className="arrow right" onClick={scrollRight}>
+          &#10095;
+        </button>
       </div>
     </section>
   );
 };
 
 export default AppsCatalog;
+
 

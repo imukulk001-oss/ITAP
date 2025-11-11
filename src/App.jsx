@@ -5,6 +5,7 @@ import HeroSection from './components/HeroSection';
 import LoginSection from './components/LoginSection';
 import AppsCatalog from './components/AppsCatalog';
 import Footer from './components/Footer';
+import Copyright from './components/Copyright';
 import './App.css';
 
 function App() {
@@ -16,6 +17,7 @@ function App() {
       <LoginSection />
       <AppsCatalog />
       <Footer />
+      <Copyright />
     </div>
   );
 }

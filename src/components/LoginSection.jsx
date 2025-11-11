@@ -64,6 +64,7 @@ const LoginSection = () => {
             </p>
           </div>
         </div>
+        {/* login form container (to be implemted using db(parichay)) */}
         <div className="login-form-container">
           <form className="login-form" onSubmit={handleSubmit}>
             <h2 className="login-form-title">Login to your account</h2>

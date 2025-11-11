@@ -1,70 +1,109 @@
-import React from 'react';
-import './Footer.css';
+import React from "react";
+import "./Footer.css";
+import {
+  XIcon,
+  YouTubeIcon,
+  WhatsAppIcon,
+  InstagramIcon,
+  FacebookIcon,
+} from "./icons/SocialIcons";
+
+const csirLogo = "/images/csir-logo.png";
 
 const Footer = () => {
-  const footerLinks = [
-    { label: 'Privacy Policy', href: '#privacy' },
-    { label: 'Disclaimer', href: '#disclaimer' },
-    { label: 'Help', href: '#help' },
-    { label: 'Terms & Conditions', href: '#terms' },
-    { label: 'Accessibility Statement', href: '#accessibility' },
-    { label: 'Copyright Policy', href: '#copyright' },
-    { label: 'Contact Us', href: '#contact' },
+  const socialMediaLinks = [
+    {
+      name: "X (Twitter)",
+      icon: <XIcon />,
+      url: "https://x.com/CSIR_IND",
+    },
+    {
+      name: "YouTube",
+      icon: <YouTubeIcon />,
+      url: "https://www.youtube.com/@CSIRINDIA1942",
+    },
+    {
+      name: "WhatsApp",
+      icon: <WhatsAppIcon />,
+      url: "https://www.whatsapp.com/channel/0029VaINdbL5q08ecWc8zV1P",
+    },
+    {
+      name: "Instagram",
+      icon: <InstagramIcon />,
+      url: "https://www.instagram.com/csirindia/",
+    },
+    {
+      name: "Facebook",
+      icon: <FacebookIcon />,
+      url: "https://www.facebook.com/INDIA.CSIR",
+    },
   ];
 
-  const handleLinkClick = (href, label) => {
-    console.log(`Navigating to ${label}: ${href}`);
-    // In a real app, this would navigate to the appropriate page
-    alert(`This would navigate to ${label}.`);
-  };
-
   return (
-    <>
-      <footer className="footer-main">
-        <div className="footer-content">
+    <footer className="footer">
+      <div className="footer-container">
+        <div className="footer-left">
           <div className="footer-logo-section">
-            <img 
-              src="/images/csir-logo.png" 
-              alt="CSIR Logo" 
-              className="footer-logo"
-            />
-            <div className="footer-org-name">
-              <div className="footer-org-name-hindi">
-                वैज्ञानिक तथा औद्योगिक अनुसंधान परिषद्
-              </div>
-              <div className="footer-org-name-english">
-                Council of Scientific & Industrial Research
-              </div>
-              <div className="footer-org-name-ministry">
-                (विज्ञान एवं प्रौद्योगिकी मंत्रालय, भारत )
-                <br />
-                Ministry of Science & Technology, Govt. of India
-              </div>
-            </div>
+            <img src={csirLogo} alt="CSIR Logo" className="footer-logo" />
+            <p className="footer-org-name">
+              वैज्ञानिक तथा औद्योगिक अनुसंधान परिषद्
+              <br />
+              Council of Scientific & Industrial Research
+              <br />
+              (विज्ञान एवं प्रौद्योगिकी मंत्रालय, भारत)
+              <br />
+              Ministry of Science & Technology, Govt. of India
+              <br />
+              <br />
+              Anusandhan Bhawan, 2 Rafi Ahmed Kidwai Marg,<br />
+              New Delhi - 110001 <br />
+              Phone reception: +91-11-23737889
+            </p>
           </div>
+        </div>
+        <div className="footer-right">
           <div className="footer-links">
             <div className="footer-links-column">
-              {footerLinks.map((link, index) => (
-                <button
+              <a href="https://www.csir.res.in/en/website-policies" className="footer-link">
+                Privacy Policy
+              </a>
+              <a href="https://www.csir.res.in/en/Disclaimer" className="footer-link">
+                Disclaimer
+              </a>
+              <a href="https://www.csir.res.in/en/help" className="footer-link">
+                Help
+              </a>
+              <a href="https://www.csir.res.in/en/Terms-and-Conditions" className="footer-link">
+                Terms & Conditions
+              </a>
+              <a href="https://www.csir.res.in/en/website-policies" className="footer-link">
+                Copyright Policy
+              </a>
+              <a href="https://www.csir.res.in/en/Contact-us" className="footer-link">
+                Contact Us
+              </a>
+            </div>
+          </div>
+          <div className="footer-social">
+            <p className="social-title">CSIR SOCIAL MEDIA</p>
+            <div className="social-icons">
+              {socialMediaLinks.map((social, index) => (
+                <a
                   key={index}
-                  className="footer-link"
-                  onClick={() => handleLinkClick(link.href, link.label)}
+                  href={social.url}
+                  className="social-icon-link"
+                  aria-label={social.name}
+                  title={social.name}
                 >
-                  {link.label}
-                </button>
+                  <div className="social-icon">{social.icon}</div>
+                </a>
               ))}
             </div>
           </div>
         </div>
-      </footer>
-      <div className="footer-bottom">
-        <p className="footer-copyright">
-          Content Owned, Maintained and Updated by CSIR - Council of Scientific and Industrial Research.
-        </p>
       </div>
-    </>
+    </footer>
   );
 };
 
 export default Footer;
-

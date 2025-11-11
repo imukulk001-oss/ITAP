@@ -1,0 +1,40 @@
+.copyright {
+  width: 100%;
+  height: 48px;
+  background-color: #152265;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.copyright-container {
+  width: 100%;
+  max-width: 1600px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0 20px;
+}
+
+.copyright-text {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 400;
+  font-size: 13px;
+  line-height: 1.65em;
+  color: #CCD3D8;
+  text-align: center;
+  margin: 0;
+}
+
+@media (max-width: 768px) {
+  .copyright {
+    height: auto;
+    min-height: 48px;
+    padding: 12px 0;
+  }
+  
+  .copyright-text {
+    font-size: 11px;
+  }
+}
+
