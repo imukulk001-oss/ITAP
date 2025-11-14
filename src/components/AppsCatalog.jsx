@@ -31,7 +31,6 @@ const AppsCatalog = () => {
     {
       id: 1,
       title: 'Legal Case Management System',
-      description: 'Trial run of Legal Case Management System is Active',
       image: '/images/app1-image.png',
       imageAlt: 'Legal Case Management System',
     },
@@ -72,7 +71,9 @@ const AppsCatalog = () => {
     <section className="apps-catalog" id="apps-catalog">
       <div className="apps-catalog-content">
         <h2 className="apps-catalog-title">Apps Catalog</h2>
-        <div className="apps-grid">
+
+        {/* 🔄 Horizontal scroll container */}
+        <div className="apps-scroll-container">
           {apps.map((app) => (
             <AppCard
               key={app.id}
@@ -91,4 +92,3 @@ const AppsCatalog = () => {
 };
 
 export default AppsCatalog;
-

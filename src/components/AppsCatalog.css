@@ -1,13 +1,15 @@
 .apps-catalog {
-  background-color: #1C2B78;
+  background-color: #ffffff;
   width: 100%;
-  padding: 80px 242px;
+  padding: 80px 0;
   min-height: 630px;
 }
 
 .apps-catalog-content {
-  max-width: 1116px;
-  margin: 0 auto;
+  max-width: 1140px;     /* Fixed width for proper centering */
+  margin: 0 auto;        /* ✅ Center the container */
+  padding: 0 24px;       /* Padding for inner spacing */
+  box-sizing: border-box;
 }
 
 .apps-catalog-title {
@@ -15,30 +17,50 @@
   font-weight: 600;
   font-size: 36px;
   line-height: 1.3;
-  color: #FFFFFF;
+  color: #1C2B78;
   text-align: center;
-  margin: 0 0 98px 0;
+  margin-bottom: 48px;
 }
 
-.apps-grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
+/* ✅ Horizontal scroll row */
+.apps-scroll-container {
+  display: flex;
+  overflow-x: auto;
   gap: 24px;
+  scroll-behavior: smooth;
+  padding-bottom: 12px;
+
+  /* Alignment fix */
+  margin-left: auto;
+  margin-right: auto;
 }
 
+/* Scrollbar styling */
+.apps-scroll-container::-webkit-scrollbar {
+  height: 8px;
+}
+.apps-scroll-container::-webkit-scrollbar-thumb {
+  background-color: rgba(0, 0, 0, 0.2);
+  border-radius: 4px;
+}
+
+/* ✅ Ensure cards do not wrap or stretch */
 .app-card {
+  flex-shrink: 0;
+  width: 260px;
+  min-width: 260px;
   display: flex;
   flex-direction: column;
   background-color: #FFFFFF;
   border-radius: 8px;
   overflow: hidden;
-  box-shadow: 0px 4px 6px 0px rgba(0, 14, 31, 0.18);
+  box-shadow: 0px 4px 6px rgba(0, 14, 31, 0.18);
   transition: transform 0.2s, box-shadow 0.2s;
 }
 
 .app-card:hover {
   transform: translateY(-4px);
-  box-shadow: 0px 8px 12px 0px rgba(0, 14, 31, 0.25);
+  box-shadow: 0px 8px 12px rgba(0, 14, 31, 0.25);
 }
 
 .app-card-image-wrapper {
@@ -109,7 +131,7 @@
 
 .app-open-button {
   width: 90px;
-  height: 52px;
+  height: 48px;
   padding: 16px;
   background-color: #0CB312;
   border: none;
@@ -133,45 +155,35 @@
   transform: translateY(0);
 }
 
-@media (max-width: 1400px) {
-  .apps-grid {
-    grid-template-columns: repeat(3, 1fr);
-  }
-}
-
+/* Responsive layout fixes */
 @media (max-width: 1200px) {
   .apps-catalog {
-    padding: 60px 40px;
+    padding: 60px 0;
   }
-  
-  .apps-grid {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 20px;
+
+  .apps-catalog-content {
+    padding: 0 20px;
   }
-  
+
   .apps-catalog-title {
     font-size: 32px;
-    margin-bottom: 60px;
   }
 }
 
 @media (max-width: 768px) {
   .apps-catalog {
-    padding: 40px 20px;
+    padding: 40px 0;
   }
-  
-  .apps-grid {
-    grid-template-columns: 1fr;
-    gap: 24px;
+
+  .apps-catalog-content {
+    padding: 0 16px;
   }
-  
+
   .apps-catalog-title {
     font-size: 28px;
-    margin-bottom: 40px;
   }
-  
+
   .app-card-image-wrapper {
     height: 200px;
   }
 }
-

@@ -2,14 +2,11 @@ import React from 'react';
 import './Header2.css';
 
 const Header2 = () => {
-
-  const handleLogin = () => {
-    // Scroll to Login section
-    const appsSection = document.getElementById('login-section-scr');
-    if (appsSection) {
-      appsSection.scrollIntoView({ behavior: 'smooth' });
-    }
+  // Redirect user directly to the Parichay portal
+  const handleParichayRedirect = () => {
+    window.open("https://parichay.nic.in/", "_blank", "noopener,noreferrer");
   };
+
   return (
     <div className="header2">
       <div className="header2-content">
@@ -33,22 +30,21 @@ const Header2 = () => {
             </div>
           </div>
         </div>
+
         <nav className="main-nav">
-          {/* <a href="https://www.csir.res.in/en" className="nav-link active">
-            CSIR Website
-          </a> */}
-          <button className="hero-button" onClick={handleLogin}>
-            LogIn
+          {/* Updated: This button now triggers Parichay login */}
+          <button className="hero-button" onClick={handleParichayRedirect}>
+            Login with Parichay
             <svg width="10" height="8" viewBox="0 0 10 8" fill="none" xmlns="http://www.w3.org/2000/svg">
               <path d="M1 4H9M9 4L6 1M9 4L6 7" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
             </svg>
           </button>
         </nav>
       </div>
+
       <div className="nav-indicator"></div>
     </div>
   );
 };
 
 export default Header2;
-
