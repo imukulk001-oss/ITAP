@@ -1,14 +1,32 @@
 .apps-section {
-  background-color: #242d7c;
+  background: url("/public/images/bgblue.jpg") no-repeat center center/cover;
   padding: 60px 0;
   color: white;
   text-align: center;
   position: relative;
 }
 
+.hero-title {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+  font-size: 48px;
+  line-height: 1.4;
+  color: #FFFFFF;
+  margin: 0;
+}
+
+.hero-description {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 1.75;
+  color: #FFFFFF;
+  margin: 0;
+}
+
 .apps-title {
   font-family: 'Poppins', sans-serif;
-  font-size: 28px;
+  font-size: 24px;
   margin-bottom: 40px;
 }
 
@@ -34,17 +52,22 @@
 }
 
 .app-card {
-  flex: 0 0 340px; /* increased from ~280px */
-  height: 420px;   /* slightly taller */
+  flex: 0 0 250px;   /* width reduced */
+  height: 340px;     /* smaller height */
   background: white;
   border-radius: 10px;
   color: black;
-  width: 280px;
-  /* flex: 0 0 auto; */
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
   overflow: hidden;
   transition: transform 0.3s ease;
 }
+
+.app-image {
+  width: 100%;
+  height: 120px;    /* reduce image height */
+  object-fit: cover;
+}
+
 
 .app-card:hover {
   transform: translateY(-6px);

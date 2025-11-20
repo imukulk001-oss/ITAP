@@ -46,6 +46,16 @@ const AppsCatalog = () => {
 
   return (
     <section id="apps-catalog" className="apps-section">
+      {/* ⭐ Hero Heading Added Here */}
+      <h1 className="hero-title">CSIR-ITApps Portal</h1>
+      <p className="hero-description">
+        CSIR - ITApps portal is designed to provide various
+        software applications<br />
+        for different purposes / Sections / Divisions /
+        Directorates of CSIR users
+      </p>
+      <br />
+
       <h2 className="apps-title">Apps Catalog</h2>
 
       <div className="apps-slider-container">

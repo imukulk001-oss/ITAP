@@ -1,6 +1,6 @@
 import React from 'react';
 import Header2 from './components/Header2';
-import HeroSection from './components/HeroSection';
+// import HeroSection from './components/HeroSection';
 // import LoginSection from './components/LoginSection';
 import AppsCatalog from './components/AppsCatalog';
 import Footer from './components/Footer';
@@ -11,7 +11,7 @@ function App() {
   return (
     <div className="App">
       <Header2 />
-      <HeroSection />
+      {/* <HeroSection /> */}
       {/* <LoginSection /> */}
       <AppsCatalog />
       <Footer />
