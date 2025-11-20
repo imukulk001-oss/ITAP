@@ -6,12 +6,17 @@ const Header2 = () => {
   const handleLogoClick = () => {
     window.location.href = "https://www.csir.res.in";
   };
-
+/*
   const handleLoginClick = () => {
     const loginSection = document.getElementById("login-section-scr");
     if (loginSection) {
       loginSection.scrollIntoView({ behavior: "smooth", block: "start" });
     }
+  };
+*/
+  // Redirect user directly to the Parichay portal
+  const handleParichayRedirect = () => {
+    window.open("https://parichay.nic.in/", "_blank", "noopener,noreferrer");
   };
 
   return (
@@ -34,13 +39,14 @@ const Header2 = () => {
             </p>
           </div>
         </div>
-        <div className="header2-right">
-          <button className="hero-button" onClick={handleLoginClick}>
-            Login
+        <nav className="main-nav">
+          {/* Updated: This button now triggers Parichay login */}
+          <button className="hero-button" onClick={handleParichayRedirect}>
+            Login with Parichay
             <svg
               width="10"
               height="8"
-              viewBox="0 0 10 10"
+              viewBox="0 0 10 8"
               fill="none"
               xmlns="http://www.w3.org/2000/svg"
             >
@@ -53,7 +59,7 @@ const Header2 = () => {
               />
             </svg>
           </button>
-        </div>
+        </nav>
       </div>
     </header>
   );
