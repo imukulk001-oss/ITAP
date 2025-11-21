@@ -6,7 +6,7 @@ const Header2 = () => {
   const handleLogoClick = () => {
     window.location.href = "https://www.csir.res.in";
   };
-/*
+  /*
   const handleLoginClick = () => {
     const loginSection = document.getElementById("login-section-scr");
     if (loginSection) {
