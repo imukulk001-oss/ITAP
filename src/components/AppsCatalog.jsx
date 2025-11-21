@@ -5,7 +5,7 @@ const apps = [
   {
     id: 1,
     title: "Legal Case Management System",
-    desc: "Trial run of Legal Case Management System is Active",
+    desc: "",
     img: "/images/app1-image.png", // ✅ public image path
   },
   { id: 2, title: "App 2", desc: "Desc 2", img: "/images/app2-image.png" },
@@ -49,10 +49,11 @@ const AppsCatalog = () => {
       {/* ⭐ Hero Heading Added Here */}
       <h1 className="hero-title">CSIR-ITApps Portal</h1>
       <p className="hero-description">
-        CSIR - ITApps portal is designed to provide various
-        software applications<br />
-        for different purposes / Sections / Divisions /
-        Directorates of CSIR users
+        CSIR - ITApps portal is designed to provide various software
+        applications
+        <br />
+        for different purposes / Sections / Divisions / Directorates of CSIR
+        users
       </p>
       <br />
 
@@ -99,5 +100,3 @@ const AppsCatalog = () => {
 };
 
 export default AppsCatalog;
-
-
